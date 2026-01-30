@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const recipeSchema = new mongoose.Schema({
     title: {
         type: String,
-        reqired: true,
+        required: true,
         trim: true,
     },
 
@@ -31,7 +31,7 @@ const recipeSchema = new mongoose.Schema({
     },
   },
   {
-    timesamps: true,
+    timestamps: true,
   }
 );
 
