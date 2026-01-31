@@ -11,6 +11,8 @@ const getRecipes = async (req, res) => {
 
 const createRecipe = async (req, res) =>{
     try {
+        req.body.user = req.user.id;
+
         const recipe = await Recipe.create(req.body);
         res.status(201).json(recipe);
    } catch (error) {
@@ -23,6 +25,10 @@ const deleteRecipe = async (req, res) =>{
         const recipe = await Recipe.findById(req.params.id);
         if (!recipe) {
             return res.status(404).json({ message: "Recipe not found"});
+        }
+
+        if (recipe.user.toString() != req.user.id) {
+            return res.status(401).json({ message: "User not authorized" });
         }
         await recipe.deleteOne();
         res.json({ message: "Recipe removed"});

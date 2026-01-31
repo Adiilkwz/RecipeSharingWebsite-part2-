@@ -6,7 +6,10 @@ const {
     createRecipe,
     deleteRecipe,
 } = require('../controllers/recipeController');
+
+const { protect } = require('../middleware/authMiddleware');
+
 router.get('/', getRecipes);
-router.post('/', createRecipe);
-router.delete('/:id', deleteRecipe);
+router.post('/', protect, createRecipe);
+router.delete('/:id', protect, deleteRecipe);
 module.exports = router;
