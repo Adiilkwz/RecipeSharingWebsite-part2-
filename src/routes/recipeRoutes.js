@@ -9,7 +9,9 @@ const {
 
 const { protect } = require('../middleware/authMiddleware');
 
+const { validateRecipe } = require('../middleware/validate');
+
 router.get('/', getRecipes);
-router.post('/', protect, createRecipe);
+router.post('/', protect, validateRecipe, createRecipe);
 router.delete('/:id', protect, deleteRecipe);
 module.exports = router;
