@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recipe Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>CulinaryConnect</h2>
+        <div>
+            <a href="dashboard.html" class="btn">Home</a>
+            <a href="editor.html" class="btn">Create</a>
+            <a href="profile.html" class="btn btn-secondary">Profile</a>
+            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Recent Recipes</h1>
+        <div id="recipe-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>checkAuth();</script>
+    <script src="js/recipes.js"></script>
+</body>
+</html>
