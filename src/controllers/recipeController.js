@@ -9,6 +9,18 @@ const getRecipes = async (req, res) => {
     }
 };
 
+const getRecipeById = async (req, res) => {
+    try{
+        const recipe = await Recipe.findById(req.params.id).populate("user", "username");
+        if (!recipe){
+            return res.status(404).json({ message: "Recipe not found"});
+        }
+        res.json(recipe);
+    } catch (error){
+        res.status(500).json({ message: error.message});
+    }
+};
+
 const createRecipe = async (req, res) =>{
     try {
         req.body.user = req.user.id;
@@ -20,6 +32,26 @@ const createRecipe = async (req, res) =>{
    }
 };
 
+const updateRecipe = async (req, res) =>{
+    try{
+        const recipe = await Recipe.findById(req.paprams.id);
+        if (!recipe){
+            return res.status(404).json({ message: "Recipe not found"});
+        }
+        if (recipe.user.toString() != req.user.id){
+            return res.status(403).json({ message: "User not authorized"});
+        }
+        const updatedRecipe = await Recipe.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true}
+        );
+        res.json(updateedRecipe);
+    } catch (error){
+        res.status(400).json({ message: error.message});    
+    }
+};
+
 const deleteRecipe = async (req, res) =>{
     try {
         const recipe = await Recipe.findById(req.params.id);
@@ -28,7 +60,7 @@ const deleteRecipe = async (req, res) =>{
         }
 
         if (recipe.user.toString() != req.user.id) {
-            return res.status(401).json({ message: "User not authorized" });
+            return res.status(403).json({ message: "User not authorized" });
         }
         await recipe.deleteOne();
         res.json({ message: "Recipe removed"});
@@ -39,6 +71,8 @@ const deleteRecipe = async (req, res) =>{
 
 module.exports = {
     getRecipes,
+    getRecipeById,
     createRecipe,
+    updateRecipe,
     deleteRecipe,
 };
