@@ -34,7 +34,7 @@ const createRecipe = async (req, res) =>{
 
 const updateRecipe = async (req, res) =>{
     try{
-        const recipe = await Recipe.findById(req.paprams.id);
+        const recipe = await Recipe.findById(req.params.id);
         if (!recipe){
             return res.status(404).json({ message: "Recipe not found"});
         }
@@ -46,7 +46,7 @@ const updateRecipe = async (req, res) =>{
             req.body,
             { new: true}
         );
-        res.json(updateedRecipe);
+        res.json(updatedRecipe);
     } catch (error){
         res.status(400).json({ message: error.message});    
     }
