@@ -2,11 +2,22 @@
 <html lang="en">
 <head>
     <title>Your Profile - CulinaryConnect</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <h2>CulinaryConnect</h2>
+        <div>
+            <a href="dashboard.html" class="btn">Home</a>
+            <a href="editor.html" class="btn">Create</a>
+            <a href="profile.html" class="btn btn-secondary">Profile</a>
+            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+    
     <nav>
-        <button onclick="logout()">Logout</button> </nav>
+        <button onclick="logout()">Logout</button> 
+    </nav>
 
     <div class="container" style="margin-top: 3rem; text-align: center;">
         <div class="card">
@@ -17,7 +28,7 @@
         </div>
     </div>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/auth.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/auth.js"></script>
 </body>
 </html>
