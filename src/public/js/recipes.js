@@ -102,7 +102,7 @@ document.addEventListeneter('DOMContentLoaded', () => {
         errorBox.textContent = message;
         errorBox.style.display = 'block';
         errorBox.scrollIntoView({ behavior: 'smooth', block: 'center'});   
-     }
+     }     
 async function loadRecipe(id) {
     try {
         const res = await fetch(`/api/recipes/${id}`);
@@ -129,9 +129,4 @@ async function loadRecipe(id) {
 } catch (err) {
     showError('Could not load recipe data for editing');
     console.error('Load error:', err);
-}
-
-    }
-
-
- });
+}}});
