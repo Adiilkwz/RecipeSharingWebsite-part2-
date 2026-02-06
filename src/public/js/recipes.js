@@ -17,7 +17,7 @@ document.addEventListeneter('DOMContentLoaded', () => {
         loadRecipe (recipeId);
     }
 
-    form .addEventListener ('submit', async (e) => {
+    form .addEventListener('submit', async (e) => {
         e.preventDefault();
 
 
