@@ -3,14 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Recipe Editor</title>
+        <title>Create Recipe</title>
         <link rel="stylesheet" href="/public/css/style.css">
+        <link rel="stylesheet" href="/public/css/editor.css">
     </head>
 <body>
     <nav class="navbar">
-        <h2>CulinaryConnect</h2>
-        <div>
-            <a href="dashboard.html" class="btn">Home</a>
+        <a href="dashboard.html" class="nav-brand">CulinaryConnect</a>
+        <div class="nav-links">
+            <a href="dashboard.html" class="btn btn-outline">Home</a>
             <a href="editor.html" class="btn">Create</a>
             <a href="profile.html" class="btn btn-secondary">Profile</a>
             <button onclick="logout()" class="btn btn-secondary">Logout</button>
@@ -19,81 +20,64 @@
     
     <div class="container">
         <div class="card">
-            <h1 id="page-title">Create Recipe</h1>
+            <h1 id="page-title">Create New Recipe</h1>
 
-            <div id="error-box" class="alert" style="display: none;"></div>
+            <div id="error-box" class="alert alert-error"></div> 
 
-            <form id="recipe-form" style="margin-top: 1.5rem;">
-
+            <form id="recipe-form">
                 <div class="form-group">
-                 <label for="title">Recipe Title *</label>
+                 <label>Title *</label>
                  <input
-                    type="text" 
-                        id="title" 
-                        name="title" 
-                        required 
-                        minlength="3" 
-                        maxlength="120" 
-                        placeholder="e.g. Classic Chocolate Brownies"
-                        >   
+                    type="text"
+                        name="title"  
+                        required minlength="3" 
+                        placeholder="e.g. Grandma's Apple Pie">   
         </div>
 
                 <div class="form-group">
-                    <label for="ingredients">Ingredients *</label>
-                    <textarea
-                        id="ingredients" 
+                    <label>Ingredients (One per line) *</label>
+                    <textarea 
                         name="ingredients" 
-                        required 
-                        placeholder="List ingredients, one per line"
-                        rows="5"
-                    ></textarea>
+                        required rows="5"
+                        placeholder="Apples&#10;Sugar&#10;Flour"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="instructions">Instructions *</label>
+                    <label>Instructions *</label>
                     <textarea
-                        id="instructions"
                         name="instructions"
-                        rows="12"
-                        required
-                        placeholder="1. Preheat oven to 180°C (350°F) and line a baking pan with parchment.&#10;2. Melt chocolate and butter together over a double boiler.&#10;3. Whisk eggs and sugar until pale and fluffy.&#10;4. Fold in the cooled chocolate mixture.&#10;5. Sift in flour, cocoa, and salt — mix gently.&#10;6. Stir in nuts if using.&#10;7. Bake 20–25 minutes. Let cool before slicing."
-                        ></textarea>
+                        required rows="8"
+                        placeholder="1. Preheat oven to 180°C (350°F) and line a baking pan with parchment.&#10;2. Melt chocolate and butter together over a double boiler.&#10;3. Whisk eggs and sugar until pale and fluffy.&#10;4. Fold in the cooled chocolate mixture.&#10;5. Sift in flour, cocoa, and salt — mix gently.&#10;6. Stir in nuts if using.&#10;7. Bake 20–25 minutes. Let cool before slicing."></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="cookingTime">Cooking Time (minutes)</label>
+                <div class="row" style="display:flex; gap: 1rem;">
+                    <div class="form group" style="flex: 1;">
+                    <label>Time (min)</label>
                     <input
                         type="number"
-                        id="cookingTime"
                         name="cookingTime"
-                        min="1"
-                        placeholder="45"
-                        >
+                        placeholder="45">
                 </div>
 
-                <div class="form-group">
-                    <label for="servings">Servings</label>
+                <div class="form-group" style="flex: 1;">
+                    <label>Servings</label>
                     <input
                     type="number"
-                    id="servings"
                     name="servings"
-                    min="1"
-                    placeholder="8"
+                    placeholder="4"
                     >
             </div>
+           </div>  
 
-        <div class="form-actions" style="margin-top: 2rem;">
-            <button type="submit" class="btn btn-primary btn-large">
-                Save Recipe
-            </button>
-            <a href="/recipes" class="btn btn-secondary">Cancel</a>
+        <div class="form-actions">
+            <button type="submit" class="btn">Save Recipe</button>
+            <a href="dashboard.html" class="btn btn-secondary">Cancel</a>
         </div>
      </form>
  </div>
 </div>
 
  <script src="/public/js/main.js"></script>
- <script>checkAuth();</script>
- <script src="/public/js/recipes.js"></script>
+ <script src="/public/js/editor.js"></script>
 </body>
 </html>
