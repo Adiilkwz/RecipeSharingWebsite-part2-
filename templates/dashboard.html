@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="/public/css/dashboard.css">
 </head>
 <body>
-
     <nav class="navbar">
         <a href="dashboard.html" class="nav-brand">CulinaryConnect</a>
         
         <div class="nav-links">
             <a href="dashboard.html" class="btn btn-outline">Home</a>
+            
             <a href="editor.html" class="btn">Create Recipe</a>
             <a href="profile.html" class="btn btn-secondary">Profile</a>
             <button onclick="logout()" class="btn btn-secondary">Logout</button>
@@ -25,11 +25,19 @@
         <h1>Latest Recipes</h1>
         
         <div id="recipe-list">
-            <p>Loading recipes...</p>
+            <div class="recipe-card">
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Example Recipe</h3>
+                    <p class="recipe-meta">By Chef Mario</p>
+                </div>
+                <div class="recipe-actions">
+                    <button class="btn">View</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="/public/js/main.js"></script>
-    <script src="/public/js/recipes.js"></script>
+    <script>checkAuth();</script> <script src="/public/js/recipes.js"></script>
 </body>
 </html>
