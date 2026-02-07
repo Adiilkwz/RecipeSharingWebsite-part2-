@@ -2,7 +2,7 @@ const Recipe = require("../models/recipe");
 
 const getRecipes = async (req, res) => {
     try {
-        const recipes = await Recipe.find().populate("user", "username"); 
+        const recipes = await Recipe.find().populate('user', 'username'); 
         res.json(recipes); 
     } catch (error) {
         res.status(500).json({ message: error.message});
@@ -11,7 +11,7 @@ const getRecipes = async (req, res) => {
 
 const getRecipeById = async (req, res) => {
     try{
-        const recipe = await Recipe.findById(req.params.id).populate("user", "username");
+        const recipe = await Recipe.findById(req.params.id).populate('user', 'username');
         if (!recipe){
             return res.status(404).json({ message: "Recipe not found"});
         }
@@ -25,7 +25,10 @@ const createRecipe = async (req, res) =>{
     try {
         req.body.user = req.user.id;
 
-        const recipe = await Recipe.create(req.body);
+        const recipe = await Recipe.create({
+            ...req.body,
+            user: req.user._id,
+        });
         res.status(201).json(recipe);
    } catch (error) {
       res.status(400).json({message: error.message});

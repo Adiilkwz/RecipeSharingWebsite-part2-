@@ -31,6 +31,18 @@
                 </form>
 
                 <div class="form-group">
+                    <label>Category *</label>
+                    <select name="category" required>
+                        <option value="" disabled selected>Select a category...</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label>Ingredients (One per line) *</label>
                     <textarea name="ingredients" required rows="5" placeholder="Apples&#10;Sugar&#10;Flour"></textarea>
                 </div>
@@ -45,16 +57,11 @@
                     <label>Time (min)</label>
                     <input type="number" name="cookingTime" placeholder="45">
                 </div>
-
-                <div class="form-group" style="flex: 1;">
-                    <label>Servings</label>
-                    <input type="number" name="servings" placeholder="4">
-                </div>
             </div>
         </div>  
 
         <div class="form-actions">
-            <button type="submit" class="btn">Save Recipe</button>
+            <button type="submit" form="recipe-form" class="btn">Save Recipe</button>
             <a href="dashboard.html" class="btn btn-secondary">Cancel</a>
         </div>
 
