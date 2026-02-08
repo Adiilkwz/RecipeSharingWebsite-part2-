@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Details</title>
     <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="/public/css/recipe.css"> </head>
+    <link rel="stylesheet" href="/public/css/recipe.css">
+</head>
 <body>
 
     <nav class="navbar">
@@ -21,46 +22,92 @@
     <div class="container">
         <div class="card recipe-detail-card">
             
-            <div class="recipe-header">
-                <h1 id="recipe-title">Loading Recipe...</h1>
-                <p class="recipe-meta">
-                    By <span id="recipe-author">...</span>
-                </p>
-            </div>
-
-            <div class="recipe-stats">
-                <div class="stat-box">
-                    <span class="stat-label">Time</span>
-                    <span id="recipe-time" class="stat-value">-- min</span>
-                </div>
-            </div>
-
-            <hr class="divider">
-
-            <div class="recipe-grid">
-                
-                <div class="ingredients-section">
-                    <h3>Ingredients</h3>
-                    <ul id="recipe-ingredients">
-                        <li>Loading ingredients...</li>
-                    </ul>
+            <div id="recipe-view-mode">
+                <div class="recipe-header">
+                    <h1 id="recipe-title">Loading Recipe...</h1>
+                    <p class="recipe-meta">
+                        By <span id="recipe-author">...</span>
+                    </p>
                 </div>
 
-                <div class="instructions-section">
-                    <h3>Instructions</h3>
-                    <div id="recipe-instructions">
-                        <p>Loading instructions...</p>
+                <div class="recipe-stats">
+                    <div class="stat-box">
+                        <span class="stat-label">Time</span>
+                        <span id="recipe-time" class="stat-value">-- min</span>
                     </div>
                 </div>
-            </div>
 
-            <hr class="divider">
+                <hr class="divider">
 
-            <div id="recipe-actions" class="action-buttons">
+                <div class="recipe-grid">
+                    <div class="ingredients-section">
+                        <h3>Ingredients</h3>
+                        <ul id="recipe-ingredients">
+                            <li>Loading ingredients...</li>
+                        </ul>
+                    </div>
+
+                    <div class="instructions-section">
+                        <h3>Instructions</h3>
+                        <div id="recipe-instructions">
+                            <p>Loading instructions...</p>
+                        </div>
+                    </div>
                 </div>
+
+                <hr class="divider">
+
+                <div id="recipe-actions" class="action-buttons">
+                    </div>
+            </div> 
+
+            <form id="recipe-edit-form" style="display: none; margin-top: 1rem;">
+                <h3>Update Recipe</h3>
+                
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="edit-title" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select id="edit-category" required>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Ingredients (One per line) *</label>
+                    <textarea id="edit-ingredients" required rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Instructions *</label>
+                    <textarea id="edit-instructions" required rows="8"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Time (min)</label>
+                    <input type="number" id="edit-time" required>
+                </div>
+
+                <div class="form-actions" style="display: flex; gap: 10px; margin-top: 20px;">
+                    <button type="submit" class="btn">Save Changes</button>
+                    <button type="button" id="cancelRecipeEditBtn" class="btn btn-secondary" 
+                            onclick="document.getElementById('recipe-edit-form').style.display='none'; 
+                                    document.getElementById('recipe-view-mode').style.display='block';">
+                        Cancel
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script src="/public/js/main.js"></script>
-    <script src="/public/js/recipe.js"></script> </body>
+    <script src="/public/js/recipe.js"></script> 
+</body>
 </html>
