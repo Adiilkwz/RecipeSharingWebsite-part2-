@@ -2,19 +2,19 @@
 
 Base URL: `/api`
 
-## 🔐 Authentication
+## Authentication
 | Endpoint | Method | Description | Auth Required |
 | :--- | :--- | :--- | :--- |
 | `/auth/register` | `POST` | Create a new account | No |
 | `/auth/login` | `POST` | Login and receive JWT token | No |
 
-## 👤 User Profile
+## User Profile
 | Endpoint | Method | Description | Auth Required |
 | :--- | :--- | :--- | :--- |
 | `/users/me` | `GET` | Get current user details | Yes |
 | `/users/profile` | `PUT` | Update username and email | Yes |
 
-## 🍲 Recipes
+## Recipes
 | Endpoint | Method | Description | Auth Required |
 | :--- | :--- | :--- | :--- |
 | `/recipes` | `GET` | Fetch all recipes | No |
@@ -23,7 +23,7 @@ Base URL: `/api`
 | `/recipes/:id` | `PUT` | Update an existing recipe | Yes |
 | `/recipes/:id` | `DELETE` | Remove a recipe | Yes |
 
-## 🧪 Request Examples
+## Request Examples
 
 ### Create Recipe (POST `/api/recipes`)
 **Headers:** `Authorization: Bearer <token>`
