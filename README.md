@@ -18,4 +18,4 @@ CulinaryConnect is a full-stack recipe sharing platform built with a **Node.js/E
 ## Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/Adiilkwz/CulinaryConnect.git](https://github.com/Adiilkwz/CulinaryConnect.git)
+   git clone https://github.com/Adiilkwz/CulinaryConnect.git
