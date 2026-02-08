@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error('Title contains invalid characters. Please use only letters, numbers, and spaces.');
                 }
 
+                const ingredientsArray = rawIngredients.split('\n').filter(line => line.trim() !== '');
+
                 for (let i = 0; i < ingredientsArray.length; i++) {
                     const ing = ingredientsArray[i].trim();
                     if (!titleRegex.test(ing)) {
@@ -47,8 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         throw new Error(`Invalid format in Instructions on line ${i + 1}: "${line}".\nEvery line must start with a number (e.g., "1. Preheat oven").`);
                     }
                 }
-               
-                const ingredientsArray = rawIngredients.split('\n').filter(line => line.trim() !== '');
 
                 const recipeData = {
                     title: title,
