@@ -16,14 +16,12 @@ async function loadRecipes() {
             card.className = 'recipe-card';
 
             let authorName = 'Chef';
-            if (recipe.user && recipe.user.username) {
-                authorName = recipe.user.username;
-            }
+            authorName = recipe.user.username;
             
             card.innerHTML = `
                 <div class="recipe-content">
                     <h3 class="recipe-title">${escapeHtml(recipe.title)}</h3>
-                    <p class="recipe-meta">By ${escapeHtml(recipe.authorName)}</p>
+                    <p class="recipe-meta">By ${escapeHtml(authorName)}</p>
                     <p style="font-size: 0.9rem; color: #666;">
                         ${recipe.time || 0} min
                     </p>
